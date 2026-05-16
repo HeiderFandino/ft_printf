@@ -6,20 +6,19 @@
 /*   By: hfandino <hfandino@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/16 12:15:27 by hfandino          #+#    #+#             */
-/*   Updated: 2026/05/16 13:22:56 by hfandino         ###   ########.fr       */
+/*   Updated: 2026/05/16 13:41:04 by hfandino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_print_hexa(unsigned int nb, char *base)
 {
-	int total;
+	int		total;
 	char	c;
 
 	total = 0;
 	if (nb >= 16)
 		total += ft_print_hexa(nb / 16, base);
-	c = base[nb % 16 ];
+	c = base[nb % 16];
 	total += ft_print_char(c);
 	return (total);
-	
 }
