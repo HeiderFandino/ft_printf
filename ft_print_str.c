@@ -6,7 +6,7 @@
 /*   By: hfandino <hfandino@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 17:04:08 by hfandino          #+#    #+#             */
-/*   Updated: 2026/05/14 17:57:16 by hfandino         ###   ########.fr       */
+/*   Updated: 2026/05/15 17:09:58 by hfandino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,4 @@ int	ft_print_str(char *str)
 		i++;
 	}
 	return (i);
-
 }

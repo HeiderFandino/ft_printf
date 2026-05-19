@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandino <hfandino@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 18:21:46 by hfandino          #+#    #+#             */
-/*   Updated: 2026/05/15 16:19:00 by hfandino         ###   ########.fr       */
+/*   Created: 2026/05/15 17:38:45 by hfandino          #+#    #+#             */
+/*   Updated: 2026/05/15 17:46:40 by hfandino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *format, ...)
+int	ft_print_unsigned(unsigned int nb)
 {
-	va_list	args;
-	int		i;
-	int		total;
+	char		c;
+	int			total;
 
-	i = 0;
 	total = 0;
-	va_start(args, format);
-	while (format[i] != '\0')
-	{
-		if (format[i] != '%')
-		{
-			total += ft_print_char(format[i]);
-			i++;
-		}
-		else if (format[i] == '%')
-		{
-			total += ft_handle_format(format[i + 1], args);
-			i += 2;
-		}
-	}
-	va_end(args);
+	if (nb >= 10)
+		total += ft_print_unsigned(nb / 10);
+	c = (nb % 10) + '0';
+	total += ft_print_char(c);
 	return (total);
 }

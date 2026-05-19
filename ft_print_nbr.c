@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandino <hfandino@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 18:21:46 by hfandino          #+#    #+#             */
-/*   Updated: 2026/05/15 16:19:00 by hfandino         ###   ########.fr       */
+/*   Created: 2026/05/15 16:07:08 by hfandino          #+#    #+#             */
+/*   Updated: 2026/05/15 17:30:57 by hfandino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *format, ...)
+int	ft_print_nbr(int nb)
 {
-	va_list	args;
-	int		i;
+	char	c;
 	int		total;
 
-	i = 0;
 	total = 0;
-	va_start(args, format);
-	while (format[i] != '\0')
+	if (nb == -2147483648)
+		return (ft_print_str("-2147483648"));
+	else if (nb < 0)
 	{
-		if (format[i] != '%')
-		{
-			total += ft_print_char(format[i]);
-			i++;
-		}
-		else if (format[i] == '%')
-		{
-			total += ft_handle_format(format[i + 1], args);
-			i += 2;
-		}
+		return (ft_print_char('-') + ft_print_nbr(-nb));
 	}
-	va_end(args);
-	return (total);
+	else
+	{
+		if (nb >= 10)
+			total += ft_print_nbr(nb / 10);
+		c = (nb % 10) + '0';
+		total += ft_print_char(c);
+		return (total);
+	}
 }
