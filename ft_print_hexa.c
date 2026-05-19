@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_print_hexa.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfandino <hfandino@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 17:04:08 by hfandino          #+#    #+#             */
-/*   Updated: 2026/05/14 17:57:16 by hfandino         ###   ########.fr       */
+/*   Created: 2026/05/16 12:15:27 by hfandino          #+#    #+#             */
+/*   Updated: 2026/05/19 11:07:47 by hfandino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_str(char *str)
+int	ft_print_hexa(unsigned int nb, char *base)
 {
-	int	i;
+	int		total;
+	char	c;
 
-	i = 0;
-	if (str == NULL)
-		return (ft_print_str("(null)"));
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-	return (i);
-
+	total = 0;
+	if (nb >= 16)
+		total += ft_print_hexa(nb / 16, base);
+	c = base[nb % 16];
+	total += ft_print_char(c);
+	return (total);
 }
