@@ -177,6 +177,6 @@ La IA fue utilizada como herramienta de apoyo para:
 - Resolver dudas conceptuales relacionadas con hexadecimal y punteros
 - Comprender mejor el funcionamiento de Makefiles
 - Apoyar el proceso de debugging y razonamiento lógico
-- Ayuda en la creacion de README
+- Ayuda en la creacion, y redaccion del README
 
 > Todo el código fue implementado, probado y adaptado manualmente durante el desarrollo del proyecto.
